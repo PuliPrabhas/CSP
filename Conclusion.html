@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conclusion Page</title>
+    <link rel="stylesheet" href="conclusion.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Modern Navigation Bar -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="introduction.html">Introduction</a>
+        <a href="Abstract.html">Abstract</a>
+        <a href="Questionnaire.html">Questionnaire</a>
+        <a href="Survey.html">Survey Data</a>
+        <a href="Activity.html">Activity Log</a>
+        <a href="Pictures.html">Pictures</a>
+        <a href="Members.html">Members</a>
+        <a href="Conclusion.html" class="active">Conclusion</a>
+    </nav>
+
+    <!-- Conclusion Section -->
+    <section class="conclusion-container">
+        <h1>Survey Conclusion</h1>
+        <p>Our survey results show an equal preference for both online and offline shopping.  
+           Among the participants, <strong>25 people</strong> preferred online shopping, while  
+           <strong>25 people</strong> preferred offline shopping — highlighting a balanced perspective.</p>
+
+        <!-- Graph Container -->
+        <div class="charts-container">
+            <div class="chart-box">
+                <h2>Bar Chart</h2>
+                <canvas id="barChart"></canvas>
+            </div>
+
+            <div class="chart-box small-chart">
+                <h2>Pie Chart</h2>
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Summary Table -->
+        <h2>Survey Results Summary</h2>
+        <table class="results-table">
+            <tr>
+                <th>Online Shopping Preferences</th>
+                <td>25</td>
+            </tr>
+            <tr>
+                <th>Offline Shopping Preferences</th>
+                <td>25</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Chart JS Script -->
+    <script>
+        // Bar Chart Configuration
+        const barChart = new Chart(document.getElementById('barChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Online Shopping', 'Offline Shopping'],
+                datasets: [{
+                    label: 'Number of People',
+                    data: [25, 25],
+                    backgroundColor: ['#4caf50', '#ff9800'],
+                    borderRadius: 5
+                }]
+            },
+            options: { responsive: true, plugins: { legend: { display: false } } }
+        });
+
+        // Pie Chart Configuration (Smaller Size)
+        const pieChart = new Chart(document.getElementById('pieChart'), {
+            type: 'pie',
+            data: {
+                labels: ['Online Shopping', 'Offline Shopping'],
+                datasets: [{
+                    data: [25, 25],
+                    backgroundColor: ['#4caf50', '#ff9800'],
+                    borderWidth: 2
+                }]
+            },
+            options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+        });
+    </script>
+</body>
+</html>
